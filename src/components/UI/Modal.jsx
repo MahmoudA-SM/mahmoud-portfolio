@@ -17,7 +17,6 @@ const Modal = ({ item, onClose }) => {
                 </div>
                 <div className="modal-body">
                     <div className="modal-info">
-                        <span className="modal-match">98% Match</span>
                         <span className="modal-year">{item.date || "2024"}</span>
                     </div>
                     <p className="modal-description">{item.description}</p>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ onNavigate }) => {
     const [showBackground, setShowBackground] = useState(false);
     const name = 'Mahmoud Moustafa';
     const birthDate = new Date('2000-07-30');
@@ -29,14 +29,14 @@ const Navbar = () => {
     return (
         <div className={`navbar ${showBackground ? 'navbar-black' : ''}`}>
             <div className="navbar-logo">
-                MYFLIX
+                <span onClick={() => onNavigate && onNavigate('home')}>MYFLIX</span>
             </div>
             <div className="navbar-links">
                 <span>{name} · {age}</span>
                 <span>{location}</span>
-                <span>Home</span>
-                <span>Projects</span>
-                <span>Experience</span>
+                <span onClick={() => onNavigate && onNavigate('home')}>Home</span>
+                <span onClick={() => onNavigate && onNavigate('home')}>Projects</span>
+                <span onClick={() => onNavigate && onNavigate('experience')}>Experience</span>
                 <span>My List</span>
             </div>
             <div className="navbar-avatar">
