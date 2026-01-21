@@ -14,6 +14,7 @@ const Row = ({ title, eyebrow, items, onItemClick, sectionId }) => {
       <div className="card-grid">
         {items.map((item) => {
           const meta = item.company || item.institution || item.date || item.tags?.[0];
+          const hasLogo = Boolean(item.logoText);
           return (
             <article
               key={item.id}
@@ -40,10 +41,18 @@ const Row = ({ title, eyebrow, items, onItemClick, sectionId }) => {
                 }
               }}
             >
-              <div
-                className="card-media"
-                style={{ backgroundImage: `url("${item.image}")` }}
-              />
+              {hasLogo ? (
+                <div className="card-media logo-media">
+                  <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+                    {item.logoText}
+                  </h1>
+                </div>
+              ) : (
+                <div
+                  className="card-media"
+                  style={{ backgroundImage: `url("${item.image}")` }}
+                />
+              )}
               <div className="card-body">
                 {meta && <span className="card-meta">{meta}</span>}
                 <h3>{item.title}</h3>
@@ -54,6 +63,17 @@ const Row = ({ title, eyebrow, items, onItemClick, sectionId }) => {
                       <span key={tag} className="tag">{tag}</span>
                     ))}
                   </div>
+                )}
+                {item.link && (
+                  <a
+                    className="card-link"
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(event) => event.stopPropagation()}
+                  >
+                    Visit site
+                  </a>
                 )}
               </div>
             </article>

@@ -81,10 +81,18 @@ const Hero = ({ profile, featured, stats, onMoreInfo }) => {
         </div>
         {featured && (
           <div className="hero-card">
-            <div
-              className="hero-card-media"
-              style={{ backgroundImage: `url("${featured.image}")` }}
-            />
+            {featured.logoText ? (
+              <div className="hero-card-media logo-media">
+                <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+                  {featured.logoText}
+                </h1>
+              </div>
+            ) : (
+              <div
+                className="hero-card-media"
+                style={{ backgroundImage: `url("${featured.image}")` }}
+              />
+            )}
             <div className="hero-card-body">
               <p className="hero-card-label">Featured project</p>
               <h3>{featured.title}</h3>

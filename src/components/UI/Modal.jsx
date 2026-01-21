@@ -11,10 +11,18 @@ const Modal = ({ item, onClose }) => {
         <button className="modal-close" onClick={onClose} aria-label="Close">
           Close
         </button>
-        <div
-          className="modal-hero"
-          style={{ backgroundImage: `url("${item.image}")` }}
-        />
+        {item.logoText ? (
+          <div className="modal-hero logo-media">
+            <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+              {item.logoText}
+            </h1>
+          </div>
+        ) : (
+          <div
+            className="modal-hero"
+            style={{ backgroundImage: `url("${item.image}")` }}
+          />
+        )}
         <div className="modal-body">
           {meta && <span className="modal-meta">{meta}</span>}
           <h2>{item.title}</h2>
@@ -24,6 +32,18 @@ const Modal = ({ item, onClose }) => {
               {item.tags.map((tag) => (
                 <span key={tag} className="tag">{tag}</span>
               ))}
+            </div>
+          )}
+          {item.link && (
+            <div className="modal-actions">
+              <a
+                className="modal-link"
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit site
+              </a>
             </div>
           )}
         </div>

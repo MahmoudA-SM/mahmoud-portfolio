@@ -44,6 +44,21 @@
   background-position: center;
 }
 
+.modal-hero.logo-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.08), rgba(14, 165, 233, 0.12));
+}
+
+.modal-hero.logo-media h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+}
+
 .modal-body {
   padding: 32px;
   display: grid;
@@ -73,6 +88,35 @@
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.modal-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(14, 165, 233, 0.35);
+  background: rgba(14, 165, 233, 0.15);
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: var(--font-mono);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 22px rgba(14, 165, 233, 0.2);
 }
 
 @media (max-width: 700px) {
