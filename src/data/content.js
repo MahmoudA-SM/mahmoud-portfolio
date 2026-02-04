@@ -2,10 +2,10 @@ export const projects = [
   {
     id: 1,
     title: "Studify",
-    description: "Turn PDFs into smart summaries and visual mind maps for faster studying.",
-    logoText: "Studify",
-    link: "https://studifyai.online",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Markmap"]
+    description:
+      "A website that takes lectures and generates study metrial for university students.",
+    tags: ["Next.js", "TypeScript", "Tailwind", "Markmap", "PDF"],
+    link: "https://studifyai.online"
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ export const projects = [
       "Premium, dark-themed Next.js marketing site prototype with modal CTAs, anchor-based sections, and a dedicated contact page.",
     tags: ["Next.js", "TypeScript", "Tailwind", "Shadcn UI", "Radix UI"],
     link: "https://trichology-demo.vercel.app/"
-  }
+  },
 ];
 
 export const experience = [
@@ -86,12 +86,13 @@ export const education = [
 
 export const profile = {
   name: "Mahmoud Moustafa",
+  profileImage: "/profile.jpg",
   birthDate: "2000-07-30",
   locations: ["Giza, Egypt", "Riyadh, Saudi Arabia"],
   availability: "Working across Giza and Riyadh; onsite or remote in either location.",
   languages: ["Arabic (native)", "English (fluent)", "French (conversational)"],
   summary:
-    "Computer scientist specializing in Linux/Windows systems, databases, networking, and multi-location integration. Track record delivering resilient systems and performance-focused solutions.",
+    "Results-driven Computer scientist from a program at a world-renowned Canadian university, specializing in Linux/Windows systems, databases, networking, and multi-location integration. Proven full-stack experience across database design, UI implementation, and multi-location ERP deployments. Skilled at building responsive, user-centered applications and contributing in Agile environments.",
   links: {
     email: "mahmoudmoustafa.ca@gmail.com",
     github: "https://github.com/MahmoudA-SM",
