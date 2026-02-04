@@ -56,14 +56,28 @@
 }
 
 .hero-actions .ghost {
-  border: 1px dashed rgba(21, 22, 26, 0.2);
+  border: none;
   padding: 11px 20px;
   border-radius: 12px;
-  color: var(--ink);
+  background: linear-gradient(120deg, var(--accent), #0ea5e9);
+  color: #fff;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.8rem;
+  box-shadow: 0 12px 26px rgba(14, 165, 233, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-actions .ghost::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: translateX(-140%);
+  animation: sheen 5s ease-in-out infinite;
+  animation-delay: 2.5s;
 }
 
 .hero-meta {
