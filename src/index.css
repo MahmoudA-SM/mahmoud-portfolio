@@ -15,6 +15,39 @@
   --font-mono: 'JetBrains Mono', monospace;
   --scroll-y: 0px;
   --scroll-progress: 0;
+  
+  /* Theme Customizer Variables */
+  --radius: 22px;
+  --radius-inner: 16px;
+  --panel-bg: rgba(255, 255, 255, 0.8);
+  --panel-border: rgba(15, 23, 42, 0.1);
+  --glass-blur: 12px;
+}
+
+[data-theme='dark'] {
+  --surface: #0a0c10;
+  --surface-strong: #000000;
+  --ink: #f0f4f8;
+  --muted: #94a3b8;
+  --accent-2: #e2e8f0;
+  --accent-3: #475569;
+  --card: #12171f;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+  --panel-bg: rgba(18, 23, 31, 0.8);
+  --panel-border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='deep'] {
+  --surface: #050505;
+  --surface-strong: #000000;
+  --ink: #ffffff;
+  --muted: #666666;
+  --accent: #ff3e00;
+  --accent-2: #ffffff;
+  --card: #0a0a0a;
+  --shadow: 0 0 40px rgba(255, 62, 0, 0.1);
+  --panel-bg: rgba(10, 10, 10, 0.9);
+  --panel-border: #ff3e00;
 }
 
 * {
@@ -75,12 +108,13 @@ img {
   position: relative;
   padding: 64px 46px;
   scroll-margin-top: 120px;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(15, 23, 42, 0.14);
-  border-radius: 22px;
+  background: var(--card);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
   box-shadow: var(--shadow);
   margin-bottom: 42px;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(var(--glass-blur));
+  transition: border-radius 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .section::before,
@@ -93,8 +127,8 @@ img {
   content: "";
   position: absolute;
   inset: 12px;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 16px;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-inner);
   pointer-events: none;
 }
 

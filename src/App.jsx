@@ -3,12 +3,22 @@ import Navbar from './components/Layout/Navbar';
 import Hero from './components/Home/Hero';
 import Row from './components/Home/Row';
 import Modal from './components/UI/Modal';
+import ThemeCustomizer from './components/UI/ThemeCustomizer';
 import { projects, experience, education, profile } from './data/content';
 import './App.css';
 import About from './components/Home/About';
 
 function App() {
   const [selectedItem, setSelectedItem] = useState(null);
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem('mahmoud_portfolio_theme');
+    return saved ? JSON.parse(saved) : {
+      mode: 'light',
+      accent: '#22d3ee',
+      radius: '22px'
+    };
+  });
+
   const featured = projects[0];
   const stats = {
     projects: projects.length,
@@ -16,6 +26,18 @@ function App() {
     locations: profile.locations.length,
     languages: profile.languages.length
   };
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.setAttribute('data-theme', theme.mode);
+    root.style.setProperty('--accent', theme.accent);
+    root.style.setProperty('--radius', theme.radius);
+    
+    const radiusVal = parseInt(theme.radius);
+    root.style.setProperty('--radius-inner', `${Math.max(0, radiusVal - 6)}px`);
+    
+    localStorage.setItem('mahmoud_portfolio_theme', JSON.stringify(theme));
+  }, [theme]);
 
   useEffect(() => {
     const elements = document.querySelectorAll('.reveal');
@@ -102,6 +124,7 @@ function App() {
         />
       </main>
       <Modal item={selectedItem} onClose={() => setSelectedItem(null)} />
+      <ThemeCustomizer theme={theme} onThemeChange={setTheme} />
     </div>
   );
 }
