@@ -5,89 +5,121 @@
 .about-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 16px;
 }
 
 .about-card {
-  background: var(--card);
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(21, 22, 26, 0.06);
+  border-radius: 16px;
+  padding: 28px 28px 32px;
   display: grid;
-  gap: 12px;
+  gap: 16px;
+  align-content: start;
   position: relative;
-  background-image: linear-gradient(135deg, rgba(14, 165, 233, 0.08), transparent 45%);
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+  /* Gradient border */
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(160deg, rgba(var(--accent-rgb), 0.22) 0%, rgba(14, 165, 233, 0.08) 50%, transparent 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow: var(--shadow);
 }
 
 .about-card::before {
   content: "";
   position: absolute;
-  inset: 12px;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  border-radius: 16px;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0.6;
+}
+
+.about-card:hover {
+  box-shadow: var(--shadow-lg), 0 0 32px var(--accent-glow);
 }
 
 .about-card h3 {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.05rem;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink);
 }
 
-.about-card p {
+.about-card > p {
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: 0.92rem;
 }
+
+/* ── Core details list ── */
 
 .about-list {
   display: grid;
-  gap: 12px;
-  font-size: 0.95rem;
-  color: var(--muted);
+  gap: 14px;
+}
+
+.about-list > div {
+  display: grid;
+  gap: 3px;
 }
 
 .about-label {
   display: block;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.65rem;
-  color: var(--accent-2);
-  margin-bottom: 4px;
+  letter-spacing: 0.18em;
+  font-size: 0.62rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  opacity: 0.8;
 }
+
+.about-list > div > span:last-child {
+  font-size: 0.9rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ── Social links ── */
 
 .about-actions {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .about-actions a {
-  border: 1px solid rgba(14, 165, 233, 0.3);
-  padding: 10px;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.7);
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
 .about-actions a:hover {
-  border-color: var(--accent);
   color: var(--accent);
+  border-color: rgba(var(--accent-rgb), 0.4);
+  background: rgba(var(--accent-rgb), 0.06);
+  transform: translateY(-2px);
 }
 
 .about-actions svg {
   width: 20px;
   height: 20px;
 }
+
+/* ── Responsive ── */
 
 @media (max-width: 900px) {
   .about-grid {

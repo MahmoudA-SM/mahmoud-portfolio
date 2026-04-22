@@ -3,7 +3,6 @@ import Navbar from './components/Layout/Navbar';
 import Hero from './components/Home/Hero';
 import Row from './components/Home/Row';
 import Modal from './components/UI/Modal';
-import ThemeCustomizer from './components/UI/ThemeCustomizer';
 import { projects, experience, education, profile } from './data/content';
 import './App.css';
 import About from './components/Home/About';
@@ -124,7 +123,6 @@ function App() {
         />
       </main>
       <Modal item={selectedItem} onClose={() => setSelectedItem(null)} />
-      <ThemeCustomizer theme={theme} onThemeChange={setTheme} />
     </div>
   );
 }

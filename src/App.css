@@ -4,50 +4,68 @@
   background-color: var(--surface);
 }
 
-.three-backdrop {
+/* Ambient glow orbs – decorative, pointer-events off */
+.app::before {
+  content: "";
   position: fixed;
-  inset: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
+  top: -15%;
+  right: -8%;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.07) 0%, transparent 70%);
   pointer-events: none;
+  z-index: 0;
+  animation: orbFloat 14s ease-in-out infinite;
 }
 
+.app::after {
+  content: "";
+  position: fixed;
+  bottom: -12%;
+  left: -8%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  animation: orbFloat 18s ease-in-out infinite reverse;
+}
 
 .page {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 32px 120px;
+  padding: 0 40px 120px;
   position: relative;
   z-index: 1;
 }
 
-.page::after {
+/* Subtle left rail line */
+.page::before {
   content: "";
   position: fixed;
-  left: 6%;
+  left: max(32px, calc(50% - 580px));
   top: 0;
   height: 100%;
   width: 1px;
-  background: rgba(20, 22, 28, 0.08);
+  background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 80%, transparent);
   pointer-events: none;
+  z-index: 0;
 }
 
-
-.page::after {
-  content: "";
-  position: fixed;
-  left: 6%;
-  top: 0;
-  height: 100%;
-  width: 1px;
-  background: rgba(20, 22, 28, 0.08);
-  pointer-events: none;
-  z-index: 1;
-}
-
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .page {
-    padding: 0 20px 96px;
+    padding: 0 28px 100px;
+  }
+
+  .page::before {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 0 16px 80px;
   }
 }

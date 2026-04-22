@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python skills/ui-ux-pro-max/scripts/search.py \"software developer portfolio dark minimal premium\" --design-system -p \"Mahmoud Portfolio\")",
+      "Bash(python \"C:\\\\Users\\\\momou\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"software developer portfolio dark minimal premium\" --design-system -p \"Mahmoud Portfolio\")",
+      "Bash(npm run *)",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}
