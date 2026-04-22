@@ -3,9 +3,10 @@ import Navbar from './components/Layout/Navbar';
 import Hero from './components/Home/Hero';
 import Row from './components/Home/Row';
 import Modal from './components/UI/Modal';
-import { projects, experience, education, profile } from './data/content';
-import './App.css';
 import About from './components/Home/About';
+import Contact from './components/Home/Contact';
+import { projects, profile } from './data/content';
+import './App.css';
 
 function App() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -18,23 +19,15 @@ function App() {
     };
   });
 
-  const featured = projects[0];
-  const stats = {
-    projects: projects.length,
-    roles: experience.length,
-    locations: profile.locations.length,
-    languages: profile.languages.length
-  };
-
   useEffect(() => {
     const root = document.documentElement;
     root.setAttribute('data-theme', theme.mode);
     root.style.setProperty('--accent', theme.accent);
     root.style.setProperty('--radius', theme.radius);
-    
+
     const radiusVal = parseInt(theme.radius);
     root.style.setProperty('--radius-inner', `${Math.max(0, radiusVal - 6)}px`);
-    
+
     localStorage.setItem('mahmoud_portfolio_theme', JSON.stringify(theme));
   }, [theme]);
 
@@ -93,12 +86,7 @@ function App() {
       <div className="scroll-progress" aria-hidden="true" />
       <Navbar profile={profile} onNavigate={handleNavigate} />
       <main className="page">
-        <Hero
-          profile={profile}
-          featured={featured}
-          stats={stats}
-          onMoreInfo={() => handleItemClick(featured)}
-        />
+        <Hero profile={profile} />
         <About profile={profile} />
         <Row
           sectionId="projects"
@@ -107,20 +95,11 @@ function App() {
           items={projects}
           onItemClick={handleItemClick}
         />
-        <Row
-          sectionId="experience"
-          eyebrow="Career"
-          title="Work Experience"
-          items={experience}
-          onItemClick={handleItemClick}
-        />
-        <Row
-          sectionId="education"
-          eyebrow="Education"
-          title="Education"
-          items={education}
-          onItemClick={handleItemClick}
-        />
+        <div className="projects-cta reveal">
+          <p>Like what you see? Let's build something.</p>
+          <button onClick={() => handleNavigate('contact')}>Start a Project</button>
+        </div>
+        <Contact profile={profile} />
       </main>
       <Modal item={selectedItem} onClose={() => setSelectedItem(null)} />
     </div>
