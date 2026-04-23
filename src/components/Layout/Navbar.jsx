@@ -16,14 +16,14 @@ const Navbar = ({ profile, onNavigate }) => {
     <header className={`navbar ${showBackground ? 'navbar-solid' : ''}`}>
       <button className="navbar-brand" onClick={() => onNavigate && onNavigate('top')}>
         <span className="navbar-name">{profile?.name || 'Mahmoud Moustafa'}</span>
-        <span className="navbar-role">Web Developer</span>
+        <span className="navbar-role">Conversion-Focused Web &amp; Systems Developer</span>
       </button>
       <nav className="navbar-links">
         <button onClick={() => onNavigate && onNavigate('about')}>About</button>
         <button onClick={() => onNavigate && onNavigate('projects')}>Projects</button>
       </nav>
       <button className="navbar-cta" onClick={() => onNavigate && onNavigate('contact')}>
-        Let's talk
+        START A PROJECT
       </button>
     </header>
   );

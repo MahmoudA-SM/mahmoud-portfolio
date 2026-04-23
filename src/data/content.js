@@ -19,7 +19,7 @@ export const projects = [
     id: 1,
     title: "Studify",
     description:
-      "Personal project — AI-powered study material generator that turns uploaded documents into flashcards and quizzes.",
+      "AI-powered study system that transforms uploaded documents into flashcards and quizzes for university students — built as a personal project.",
     tags: ["Next.js", "TypeScript", "Tailwind", "Markmap", "PDF"],
     link: "https://studifyai.online"
   },
@@ -33,8 +33,18 @@ export const profile = {
   availability: "Available for remote projects worldwide.",
   summary:
     "I specialize in building conversion-focused websites for service businesses. My focus is on what happens after someone lands on your page — do they book, call, or buy? That's what I optimize for.",
+  why: "Most businesses lose clients before they ever speak to them — because their website doesn't do enough. I fix that.",
+  differentiator: "I don't just build websites that look good. I build ones that earn back their cost.",
+  stats: [
+    // Adjust these numbers to match your actual track record
+    { value: "10+", label: "Projects delivered" },
+    { value: "4+",  label: "Years of experience" },
+    { value: "3",   label: "Countries worked in" },
+  ],
   links: {
     email: "mahmoudmoustafa.ca@gmail.com",
-    linkedin: "https://www.linkedin.com/in/mahmoud-moustafa-99727122a/"
+    linkedin: "https://www.linkedin.com/in/mahmoud-moustafa-99727122a/",
+    // TODO: Replace XXXXXXXXXXX with your number — country code + digits, no + or spaces (e.g. 201234567890)
+    whatsapp: "https://wa.me/XXXXXXXXXXX",
   }
 };

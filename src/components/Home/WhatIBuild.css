@@ -1,0 +1,110 @@
+.what-i-build {
+  padding-top: 40px;
+}
+
+.wib-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.wib-card {
+  border-radius: 16px;
+  padding: 32px 28px 36px;
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(160deg, rgba(var(--accent-rgb), 0.22) 0%, rgba(14, 165, 233, 0.08) 50%, transparent 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow: var(--shadow);
+}
+
+.wib-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0.6;
+}
+
+.wib-card:hover {
+  box-shadow: var(--shadow-lg), 0 0 32px var(--accent-glow);
+}
+
+.wib-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(var(--accent-rgb), 0.1);
+  color: var(--accent);
+}
+
+.wib-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.wib-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.wib-desc {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.wib-cta-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.wib-cta {
+  border: none;
+  padding: 14px 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), #0ea5e9);
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 0.76rem;
+  font-family: var(--font-mono);
+  box-shadow: 0 8px 24px var(--accent-glow);
+  cursor: pointer;
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.wib-cta:hover {
+  box-shadow: 0 12px 32px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .wib-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .wib-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

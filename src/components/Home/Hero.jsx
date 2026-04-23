@@ -11,7 +11,7 @@ const Hero = ({ profile }) => {
       <div className="hero-inner">
         <p className="section-eyebrow">Portfolio 2026</p>
         <h1 className="hero-title">{profile?.name || 'Mahmoud Moustafa'}</h1>
-        <p className="hero-role">I build websites that turn visitors into paying clients.</p>
+        <p className="hero-role">I build websites and systems that turn visitors into clients and manual work into automation.</p>
         <p className="hero-summary">
           I design and build conversion-focused websites for service businesses and founders.
           Every site I make is built around one goal: getting visitors to take action — book, call, or buy.

@@ -70,6 +70,27 @@
   }
 }
 
+/* Footer wrapper — matches page max-width */
+.page-footer {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  .page-footer {
+    padding: 0 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-footer {
+    padding: 0 16px;
+  }
+}
+
 /* ── After-projects CTA ── */
 
 .projects-cta {

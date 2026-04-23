@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './components/Layout/Navbar';
 import Hero from './components/Home/Hero';
+import LogoBar from './components/Home/LogoBar';
 import Row from './components/Home/Row';
 import Modal from './components/UI/Modal';
 import About from './components/Home/About';
+import WhatIBuild from './components/Home/WhatIBuild';
+import FAQ from './components/Home/FAQ';
 import Contact from './components/Home/Contact';
+import Footer from './components/Home/Footer';
 import { projects, profile } from './data/content';
 import './App.css';
 
@@ -87,7 +91,9 @@ function App() {
       <Navbar profile={profile} onNavigate={handleNavigate} />
       <main className="page">
         <Hero profile={profile} />
+        <LogoBar />
         <About profile={profile} />
+        <WhatIBuild />
         <Row
           sectionId="projects"
           eyebrow="Selected work"
@@ -97,10 +103,14 @@ function App() {
         />
         <div className="projects-cta reveal">
           <p>Like what you see? Let's build something.</p>
-          <button onClick={() => handleNavigate('contact')}>Start a Project</button>
+          <button onClick={() => handleNavigate('contact')}>START A PROJECT</button>
         </div>
+        <FAQ />
         <Contact profile={profile} />
       </main>
+      <footer className="page-footer">
+        <Footer />
+      </footer>
       <Modal item={selectedItem} onClose={() => setSelectedItem(null)} />
     </div>
   );

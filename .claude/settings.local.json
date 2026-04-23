@@ -4,7 +4,13 @@
       "Bash(python skills/ui-ux-pro-max/scripts/search.py \"software developer portfolio dark minimal premium\" --design-system -p \"Mahmoud Portfolio\")",
       "Bash(python \"C:\\\\Users\\\\momou\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"software developer portfolio dark minimal premium\" --design-system -p \"Mahmoud Portfolio\")",
       "Bash(npm run *)",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "Bash(claude skills *)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.taivo.ai)",
+      "Bash(grep -E \"^d|\\\\.json$|\\\\.md$\")",
+      "Bash(npm install *)"
     ]
   }
 }

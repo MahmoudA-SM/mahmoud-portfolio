@@ -4,7 +4,7 @@
 
 .about-grid {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 
@@ -125,6 +125,70 @@
   height: 20px;
 }
 
+/* ── Stats strip ── */
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 24px 16px;
+  background: var(--card);
+  text-align: center;
+}
+
+.about-stat-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.about-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* ── Why + differentiator ── */
+
+.about-why {
+  color: var(--ink) !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+  margin-top: 4px;
+}
+
+.about-differentiator {
+  color: var(--muted) !important;
+  font-style: italic;
+  font-size: 0.88rem !important;
+}
+
+@media (max-width: 500px) {
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── CTA ── */
 
 .about-cta {
@@ -151,10 +215,3 @@
   transform: translateY(-2px);
 }
 
-/* ── Responsive ── */
-
-@media (max-width: 900px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-}
