@@ -14,26 +14,14 @@ import './App.css';
 
 function App() {
   const [selectedItem, setSelectedItem] = useState(null);
-  const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('mahmoud_portfolio_theme');
-    return saved ? JSON.parse(saved) : {
-      mode: 'light',
-      accent: '#22d3ee',
-      radius: '22px'
-    };
-  });
-
   useEffect(() => {
     const root = document.documentElement;
-    root.setAttribute('data-theme', theme.mode);
-    root.style.setProperty('--accent', theme.accent);
-    root.style.setProperty('--radius', theme.radius);
-
-    const radiusVal = parseInt(theme.radius);
-    root.style.setProperty('--radius-inner', `${Math.max(0, radiusVal - 6)}px`);
-
-    localStorage.setItem('mahmoud_portfolio_theme', JSON.stringify(theme));
-  }, [theme]);
+    // Hardcoded theme values
+    root.setAttribute('data-theme', 'light');
+    root.style.setProperty('--accent', '#22d3ee');
+    root.style.setProperty('--radius', '22px');
+    root.style.setProperty('--radius-inner', '16px');
+  }, []);
 
   useEffect(() => {
     const elements = document.querySelectorAll('.reveal');

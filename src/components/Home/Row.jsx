@@ -43,7 +43,7 @@ const Row = ({ title, eyebrow, items, onItemClick, sectionId }) => {
             >
               {hasLogo ? (
                 <div className="card-media logo-media">
-                  <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+                  <h1 className="card-logo-text">
                     {item.logoText}
                   </h1>
                 </div>

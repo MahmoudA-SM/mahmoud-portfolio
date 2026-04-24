@@ -21,8 +21,8 @@
   --font-mono: 'JetBrains Mono', monospace;
   --scroll-y: 0px;
   --scroll-progress: 0;
-  --radius: 20px;
-  --radius-inner: 14px;
+  --radius: 22px;
+  --radius-inner: 16px;
   --panel-bg: rgba(255, 255, 255, 0.82);
   --panel-border: rgba(15, 23, 42, 0.08);
   --glass-blur: 20px;
