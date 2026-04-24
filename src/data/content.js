@@ -1,27 +1,33 @@
 export const projects = [
   {
-    id: 3,
-    title: "Trichology Demo",
+    id: 1,
+    title: "Daniel Galvin's Trichology Clinic",
     description:
-      "Conversion-focused marketing site with modal CTAs, anchor-based navigation, and a dedicated contact page, built to turn visitors into leads.",
-    tags: ["Next.js", "TypeScript", "Tailwind", "Shadcn UI", "Radix UI"],
-    link: "https://trichology-demo.vercel.app/"
+      "A high-conversion landing page for a premium hair clinic, featuring a clean, medical-grade aesthetic, treatment overviews, and optimized appointment CTAs.",
+    tags: ["React", "Conversion-Focused", "Premium Design"],
+    link: "https://v0-daniel-galvin-hair-clinic.vercel.app/",
+    desktopMockup: "/assets/mockups/hairclinic_desktop.png",
+    mobileMockup: "/assets/mockups/hairclinic_mobile.png",
   },
   {
     id: 2,
-    title: "Intellicore.online",
+    title: "Trichology Demo",
     description:
-      "Full-stack food distribution platform with role-based access, real-time inventory management, and a responsive operator dashboard.",
-    tags: ["Python", "Web App", "CRUD", "Validation"],
-    link: "https://intellicore.online"
+      "Conversion-focused marketing site with modal CTAs, anchor-based navigation, and a dedicated contact page, built to turn visitors into leads.",
+    tags: ["Next.js", "TypeScript", "Tailwind", "Shadcn UI"],
+    link: "https://trichology-demo.vercel.app/",
+    desktopMockup: "/assets/mockups/trichology_desktop.png",
+    mobileMockup: "/assets/mockups/trichology_mobile.png",
   },
   {
-    id: 1,
-    title: "Studify",
+    id: 3,
+    title: "Studify AI",
     description:
       "AI-powered study system that transforms uploaded documents into flashcards and quizzes for university students — built as a personal project.",
-    tags: ["Next.js", "TypeScript", "Tailwind", "Markmap", "PDF"],
-    link: "https://studifyai.online"
+    tags: ["Next.js", "TypeScript", "Tailwind", "AI"],
+    link: "https://studifyai.online",
+    desktopMockup: "/assets/mockups/studify_desktop.png",
+    mobileMockup: "/assets/mockups/studify_mobile.png",
   },
 ];
 

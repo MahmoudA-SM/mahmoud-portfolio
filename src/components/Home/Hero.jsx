@@ -1,7 +1,9 @@
 import React from 'react';
 import './Hero.css';
+import { useMagnetic } from '../../hooks/useMagnetic';
 
 const Hero = ({ profile }) => {
+  const magneticButton = useMagnetic(0.2, 80);
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -18,7 +20,11 @@ const Hero = ({ profile }) => {
           Clean code, sharp design, real results.
         </p>
         <div className="hero-actions">
-          <button className="hero-cta" onClick={scrollToContact}>
+          <button 
+            ref={magneticButton}
+            className="hero-cta" 
+            onClick={scrollToContact}
+          >
             Start a Project
           </button>
         </div>

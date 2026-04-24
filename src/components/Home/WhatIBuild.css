@@ -5,106 +5,205 @@
 .wib-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-auto-rows: 200px;
+  gap: 20px;
 }
 
 .wib-card {
-  border-radius: 16px;
-  padding: 32px 28px 36px;
-  display: grid;
-  gap: 14px;
-  align-content: start;
+  border-radius: 24px;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-  background:
-    linear-gradient(var(--card), var(--card)) padding-box,
-    linear-gradient(160deg, rgba(var(--accent-rgb), 0.22) 0%, rgba(14, 165, 233, 0.08) 50%, transparent 100%) border-box;
-  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  background: rgba(var(--card-rgb), 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: var(--shadow);
 }
 
-.wib-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-  opacity: 0.6;
+.wib-card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bento Layout */
+.wib-card-conversion {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.wib-card-systems {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.wib-card-automation {
+  grid-column: span 1;
+  grid-row: span 1;
 }
 
 .wib-card:hover {
-  box-shadow: var(--shadow-lg), 0 0 32px var(--accent-glow);
+  transform: translateY(-8px);
+  border-color: rgba(var(--accent-rgb), 0.3);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.5), 
+              0 0 20px rgba(var(--accent-rgb), 0.1);
+}
+
+.wib-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(var(--accent-rgb), 0.05), transparent 70%);
+  z-index: 1;
+  transition: opacity 0.4s ease;
+}
+
+.wib-card:hover .wib-card-bg {
+  opacity: 0.8;
+}
+
+.wib-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(var(--accent-rgb), 0.15);
+  color: var(--accent);
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+  margin-bottom: 24px;
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
 }
 
 .wib-icon {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  background: rgba(var(--accent-rgb), 0.1);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.2), rgba(var(--accent-rgb), 0.05));
   color: var(--accent);
+  margin-bottom: 20px;
 }
 
 .wib-icon svg {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
 }
 
 .wib-title {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--ink);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+}
+
+.wib-card-conversion .wib-title {
+  font-size: 1.75rem;
 }
 
 .wib-desc {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--muted);
-  line-height: 1.65;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.wib-card-conversion .wib-desc {
+  font-size: 1.05rem;
+}
+
+.wib-stat {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.wib-stat-value {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wib-stat-value::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.4;
 }
 
 .wib-cta-wrap {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .wib-cta {
   border: none;
-  padding: 14px 36px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--accent), #0ea5e9);
+  padding: 16px 48px;
+  border-radius: 12px;
+  background: var(--accent);
   color: #fff;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.09em;
-  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
   font-family: var(--font-mono);
-  box-shadow: 0 8px 24px var(--accent-glow);
+  box-shadow: 0 10px 20px -5px rgba(var(--accent-rgb), 0.4);
   cursor: pointer;
-  transition: box-shadow 0.25s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .wib-cta:hover {
-  box-shadow: 0 12px 32px var(--accent-glow);
   transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px rgba(var(--accent-rgb), 0.5);
+  background: var(--accent-light, #0ea5e9);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .wib-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .wib-card-automation {
+    grid-column: span 2;
   }
 }
 
-@media (min-width: 601px) and (max-width: 900px) {
+@media (max-width: 768px) {
   .wib-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+  
+  .wib-card-conversion,
+  .wib-card-systems,
+  .wib-card-automation {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .wib-card-content {
+    padding: 24px;
+  }
+
+  .wib-card-conversion .wib-title {
+    font-size: 1.4rem;
   }
 }

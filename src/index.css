@@ -11,6 +11,7 @@
   --accent-2: #0f172a;
   --accent-3: #94a3b8;
   --card: #ffffff;
+  --card-rgb: 255, 255, 255;
   --shadow: 0 4px 20px rgba(15, 23, 42, 0.07), 0 1px 4px rgba(15, 23, 42, 0.04);
   --shadow-lg: 0 24px 60px rgba(15, 23, 42, 0.12);
   --shadow-glow: 0 0 40px var(--accent-glow);
@@ -58,6 +59,7 @@
   --accent-glow: rgba(255, 75, 31, 0.22);
   --accent-2: #f8fafc;
   --card: #08090e;
+  --card-rgb: 8, 9, 14;
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
   --shadow-lg: 0 0 80px rgba(255, 75, 31, 0.08);
   --shadow-glow: 0 0 60px var(--accent-glow);

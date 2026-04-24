@@ -17,14 +17,14 @@
 - [ ] **"Available for Work" Indicator:** Add a subtle pulsating "Live" status to the hero or nav.
 
 ### Phase 3: Visual Work Showcase
-- [ ] **Device Mockups:** Generate/Search for device frames (Laptop/Mobile) for Trichology, Intellicore, and Studify.
-- [ ] **Project Layout Update:** Transition `Row.jsx` to a split-screen layout (Text vs. Mockup).
-- [ ] **Depth & Shadows:** Apply `--shadow-glow` and layering to mockups to create 3D depth.
+- [x] **Device Mockups:** Generate/Search for device frames (Laptop/Mobile) for Trichology, Intellicore, and Studify.
+- [x] **Project Layout Update:** Transition `Row.jsx` to a split-screen layout (Text vs. Mockup).
+- [x] **Depth & Shadows:** Apply `--shadow-glow` and layering to mockups to create 3D depth.
 
 ### Phase 4: Modern UI Patterns
-- [ ] **Bento Services Grid:** Refactor `WhatIBuild.jsx` into an asymmetric bento-box layout.
-- [ ] **Magnetic Interactions:** Add magnetic-pull logic to primary CTA buttons.
-- [ ] **Glassmorphism Pass:** Apply high-blur panel styles to the `Contact` and `FAQ` sections.
+- [x] **Bento Services Grid:** Refactor `WhatIBuild.jsx` into an asymmetric bento-box layout.
+- [x] **Magnetic Interactions:** Add magnetic-pull logic to primary CTA buttons.
+- [x] **Glassmorphism Pass:** Apply high-blur panel styles to the `Contact` and `FAQ` sections.
 
 ---
 

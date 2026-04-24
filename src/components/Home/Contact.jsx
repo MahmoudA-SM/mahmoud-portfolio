@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { profile } from '../../data/content';
+import { useMagnetic } from '../../hooks/useMagnetic';
 import './Contact.css';
 
 const LinkedInIcon = () => (
@@ -17,6 +18,7 @@ const WhatsAppIcon = () => (
 
 const Contact = () => {
   const [state, handleSubmit] = useForm('xbdqqapp');
+  const magneticSubmit = useMagnetic(0.2, 80);
 
   return (
     <section className="contact section reveal" id="contact">
@@ -97,7 +99,12 @@ const Contact = () => {
             </div>
             <ValidationError errors={state.errors} className="contact-error" />
             <div className="contact-footer">
-              <button type="submit" className="contact-submit" disabled={state.submitting}>
+              <button 
+                ref={magneticSubmit}
+                type="submit" 
+                className="contact-submit" 
+                disabled={state.submitting}
+              >
                 {state.submitting ? 'Sending…' : 'Send Message'}
               </button>
               <div className="contact-trust-badges">

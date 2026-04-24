@@ -1,8 +1,10 @@
 import React from 'react';
 import './About.css';
 import { profile as defaultProfile } from '../../data/content';
+import { useMagnetic } from '../../hooks/useMagnetic';
 
 const About = ({ profile = defaultProfile }) => {
+  const magneticButton = useMagnetic(0.2, 80);
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -38,7 +40,13 @@ const About = ({ profile = defaultProfile }) => {
           {profile.differentiator && (
             <p className="about-differentiator">{profile.differentiator}</p>
           )}
-          <button className="about-cta" onClick={scrollToContact}>Start a Project</button>
+          <button 
+            ref={magneticButton}
+            className="about-cta" 
+            onClick={scrollToContact}
+          >
+            Start a Project
+          </button>
         </div>
       </div>
     </section>
