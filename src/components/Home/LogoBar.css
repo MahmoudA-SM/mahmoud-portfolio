@@ -1,7 +1,9 @@
 .logo-bar {
-  padding: 56px 0 16px;
+  padding: 64px 0 48px;
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
 }
-
 .logo-bar-label {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -9,12 +11,12 @@
   letter-spacing: 0.14em;
   color: var(--muted);
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
-
 .logo-bar-wrapper {
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 /* Fade edges */
@@ -46,9 +48,10 @@
 
 .logo-bar-track {
   display: flex;
-  gap: 16px;
+  gap: 64px;
   width: max-content;
-  animation: scroll-x 30s linear infinite;
+  min-width: 200%;
+  animation: scroll-x 40s linear infinite;
 }
 
 .logo-bar-wrapper:hover .logo-bar-track {
@@ -57,21 +60,45 @@
 
 .logo-bar-card {
   flex-shrink: 0;
-  padding: 14px 28px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 48px;
   border-radius: var(--radius-inner);
-  font-family: var(--font-display);
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 0.01em;
-  white-space: nowrap;
   background:
     linear-gradient(var(--card), var(--card)) padding-box,
-    linear-gradient(135deg, rgba(var(--accent-rgb), 0.18) 0%, rgba(14, 165, 233, 0.06) 100%) border-box;
+    linear-gradient(135deg, rgba(var(--accent-rgb), 0.1) 0%, rgba(14, 165, 233, 0.02) 100%) border-box;
   border: 1px solid transparent;
-  transition: color 0.2s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.partner-logo {
+  height: 68px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1) opacity(0.75);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.partner-logo.pillar-logo {
+  height: 95px; /* Scaled up even more as requested */
+  filter: grayscale(1) opacity(0.95);
+}
+
+.logo-bar-card:hover .partner-logo.pillar-logo {
+  transform: scale(1.1);
+  filter: grayscale(0) opacity(1);
 }
 
 .logo-bar-card:hover {
-  color: var(--ink);
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(135deg, rgba(var(--accent-rgb), 0.25) 0%, rgba(14, 165, 233, 0.1) 100%) border-box;
+  transform: translateY(-2px);
+}
+
+.logo-bar-card:hover .partner-logo {
+  filter: grayscale(0) opacity(1);
+  transform: scale(1.05);
 }

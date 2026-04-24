@@ -14,17 +14,19 @@ const Navbar = ({ profile, onNavigate }) => {
 
   return (
     <header className={`navbar ${showBackground ? 'navbar-solid' : ''}`}>
-      <button className="navbar-brand" onClick={() => onNavigate && onNavigate('top')}>
-        <span className="navbar-name">{profile?.name || 'Mahmoud Moustafa'}</span>
-        <span className="navbar-role">Conversion-Focused Web &amp; Systems Developer</span>
-      </button>
-      <nav className="navbar-links">
-        <button onClick={() => onNavigate && onNavigate('about')}>About</button>
-        <button onClick={() => onNavigate && onNavigate('projects')}>Projects</button>
-      </nav>
-      <button className="navbar-cta" onClick={() => onNavigate && onNavigate('contact')}>
-        START A PROJECT
-      </button>
+      <div className="navbar-inner">
+        <button className="navbar-brand" onClick={() => onNavigate && onNavigate('top')}>
+          <span className="navbar-name">{profile?.name || 'Mahmoud Moustafa'}</span>
+          <span className="navbar-role">Conversion-Focused Web &amp; Systems Developer</span>
+        </button>
+        <nav className="navbar-links">
+          <button onClick={() => onNavigate && onNavigate('about')}>About</button>
+          <button onClick={() => onNavigate && onNavigate('projects')}>Projects</button>
+        </nav>
+        <button className="navbar-cta" onClick={() => onNavigate && onNavigate('contact')}>
+          START A PROJECT
+        </button>
+      </div>
     </header>
   );
 };

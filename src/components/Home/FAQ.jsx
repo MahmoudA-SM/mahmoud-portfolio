@@ -4,7 +4,7 @@ import './FAQ.css';
 const faqs = [
   {
     q: "Are you available right now?",
-    a: "Yes — I'm currently taking on new projects. If you have a specific deadline, mention it in the form and I'll confirm whether I can meet it.",
+    a: "Yes, I'm currently taking on new projects. If you have a specific deadline, mention it in the form and I'll confirm whether I can meet it.",
   },
   {
     q: "How long does a typical project take?",
@@ -12,11 +12,11 @@ const faqs = [
   },
   {
     q: "Do you work with clients outside Egypt and Saudi Arabia?",
-    a: "Yes — I work 100% remotely and take on projects from anywhere. Most communication happens over WhatsApp, email, or a short call.",
+    a: "Yes, I work 100% remotely and take on projects from anywhere. Most communication happens over WhatsApp, email, or a short call.",
   },
   {
     q: "What do you need from me to get started?",
-    a: "A brief description of what you need, your timeline, and any existing branding (logo, colors). That's it — I'll handle the rest.",
+    a: "A brief description of what you need, your timeline, and any existing branding (logo, colors). That's it: I'll handle the rest.",
   },
   {
     q: "What does a project cost?",

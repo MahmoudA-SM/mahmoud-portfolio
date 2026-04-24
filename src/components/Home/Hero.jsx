@@ -14,7 +14,7 @@ const Hero = ({ profile }) => {
         <p className="hero-role">I build websites and systems that turn visitors into clients and manual work into automation.</p>
         <p className="hero-summary">
           I design and build conversion-focused websites for service businesses and founders.
-          Every site I make is built around one goal: getting visitors to take action — book, call, or buy.
+          Every site I make is built around one goal: getting visitors to take action, such as to book, call, or buy.
           Clean code, sharp design, real results.
         </p>
         <div className="hero-actions">

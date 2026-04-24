@@ -90,7 +90,7 @@ const Contact = () => {
                 id="contact-message"
                 name="message"
                 rows={5}
-                placeholder="Tell me about your project — what you need, your timeline, anything relevant."
+                placeholder="Tell me about your project: what you need, your timeline, anything relevant."
                 required
               />
               <ValidationError field="message" errors={state.errors} className="contact-error" />
@@ -100,7 +100,10 @@ const Contact = () => {
               <button type="submit" className="contact-submit" disabled={state.submitting}>
                 {state.submitting ? 'Sending…' : 'Send Message'}
               </button>
-              <span className="contact-trust">I respond within 24 hours.</span>
+              <div className="contact-trust-badges">
+                <span className="contact-trust">I respond within 24 hours.</span>
+                <span className="contact-guarantee">✓ 100% Satisfaction Guarantee</span>
+              </div>
             </div>
           </form>
         )}

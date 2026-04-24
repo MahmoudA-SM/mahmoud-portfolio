@@ -3,7 +3,7 @@ export const projects = [
     id: 3,
     title: "Trichology Demo",
     description:
-      "Conversion-focused marketing site with modal CTAs, anchor-based navigation, and a dedicated contact page — built to turn visitors into leads.",
+      "Conversion-focused marketing site with modal CTAs, anchor-based navigation, and a dedicated contact page, built to turn visitors into leads.",
     tags: ["Next.js", "TypeScript", "Tailwind", "Shadcn UI", "Radix UI"],
     link: "https://trichology-demo.vercel.app/"
   },
@@ -44,7 +44,7 @@ export const profile = {
   links: {
     email: "mahmoudmoustafa.ca@gmail.com",
     linkedin: "https://www.linkedin.com/in/mahmoud-moustafa-99727122a/",
-    // TODO: Replace XXXXXXXXXXX with your number — country code + digits, no + or spaces (e.g. 201234567890)
-    whatsapp: "https://wa.me/XXXXXXXXXXX",
+    // TODO: Replace XXXXXXXXXXX with your number, country code + digits, no + or spaces (e.g. 201234567890)
+    whatsapp: "https://wa.me/966510267231",
   }
 };

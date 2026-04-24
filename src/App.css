@@ -4,7 +4,7 @@
   background-color: var(--surface);
 }
 
-/* Ambient glow orbs – decorative, pointer-events off */
+/* Ambient glow orbs - decorative, pointer-events off */
 .app::before {
   content: "";
   position: fixed;
@@ -41,26 +41,10 @@
   z-index: 1;
 }
 
-/* Subtle left rail line */
-.page::before {
-  content: "";
-  position: fixed;
-  left: max(32px, calc(50% - 580px));
-  top: 0;
-  height: 100%;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 80%, transparent);
-  pointer-events: none;
-  z-index: 0;
-}
 
 @media (max-width: 1024px) {
   .page {
     padding: 0 28px 100px;
-  }
-
-  .page::before {
-    display: none;
   }
 }
 
@@ -70,7 +54,7 @@
   }
 }
 
-/* Footer wrapper — matches page max-width */
+/* Footer wrapper - matches page max-width */
 .page-footer {
   max-width: 1240px;
   margin: 0 auto;

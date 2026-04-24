@@ -7,8 +7,11 @@ import Modal from './components/UI/Modal';
 import About from './components/Home/About';
 import WhatIBuild from './components/Home/WhatIBuild';
 import FAQ from './components/Home/FAQ';
+import Reasons from './components/Home/Reasons';
+import Process from './components/Home/Process';
 import Contact from './components/Home/Contact';
 import Footer from './components/Home/Footer';
+import ProjectImpact from './components/Home/ProjectImpact';
 import { projects, profile } from './data/content';
 import './App.css';
 
@@ -80,8 +83,11 @@ function App() {
       <main className="page">
         <Hero profile={profile} />
         <LogoBar />
+        <ProjectImpact />
         <About profile={profile} />
+        <Reasons />
         <WhatIBuild />
+        <Process />
         <Row
           sectionId="projects"
           eyebrow="Selected work"

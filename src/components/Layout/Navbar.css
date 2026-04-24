@@ -2,17 +2,23 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  align-items: center;
-  gap: 24px;
-  padding: 0 40px;
   height: 68px;
   background: rgba(242, 244, 248, 0.82);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border-bottom: 1px solid var(--border);
   transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 24px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 100%;
 }
 
 .navbar-solid {
@@ -155,9 +161,12 @@
 
 
 @media (max-width: 900px) {
-  .navbar {
+  .navbar-inner {
     grid-template-columns: 1fr auto;
     padding: 0 20px;
+  }
+  
+  .navbar {
     height: 60px;
   }
 

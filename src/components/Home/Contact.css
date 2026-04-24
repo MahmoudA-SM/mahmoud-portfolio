@@ -136,10 +136,25 @@
   transform: translateY(-2px);
 }
 
+.contact-trust-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .contact-trust {
   font-size: 0.82rem;
   color: var(--muted);
   font-family: var(--font-mono);
+}
+
+.contact-guarantee {
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* ── Sent state ── */
