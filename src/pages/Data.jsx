@@ -1,35 +1,28 @@
 import { Page, SectionHead, ContactBand, FAQ, WhatsAppButton } from '../shared';
-import { LoadRecord } from '../visuals';
-import { dataTools, dataServices, caseStudies, partnerModel, dataFaqs, experience, links } from '../content';
+import { StackMap } from '../visuals';
+import { dataServices, standards, governance, partnerModel, credentials, dataFaqs, links } from '../content';
 import { DownloadIcon, CheckIcon } from '../icons';
 
 export default function Data() {
-  const renad = experience[0];
   return (
     <Page current="data">
       <section className="hero hero-service">
         <div className="container hero-split">
           <div className="hero-copy">
-            <p className="kicker reveal"><span className="kicker-num">01</span>Informatica IDMC data work</p>
-            <h1 className="display display-md">Every row, accounted for.</h1>
+            <p className="kicker reveal"><span className="kicker-num">→</span>Informatica consulting</p>
+            <h1 className="display display-md">Informatica, end to end.</h1>
             <p className="lead reveal">
-              Data integration, data quality and governance in Informatica Intelligent Data Management Cloud,
-              for data teams and Informatica partners. Every delivery comes with row counts that add up, not
-              just a green status.
+              PowerCenter, IDMC, data quality, governance and migrations, for data teams and Informatica
+              partners. Delivered remotely, in English or Arabic, and reconciled to the last row.
             </p>
             <div className="cta-row reveal">
-              <WhatsAppButton>Send me the work package</WhatsAppButton>
+              <WhatsAppButton>Discuss your project</WhatsAppButton>
               <a className="btn btn-ghost" href={links.capability} download={links.capabilityName}>
-                <DownloadIcon /> <span>Capability statement (PDF)</span>
+                <DownloadIcon /> <span>Capability statement</span>
               </a>
             </div>
           </div>
-          <div className="hero-visual reveal"><LoadRecord /></div>
-        </div>
-        <div className="container">
-          <ul className="chips reveal" aria-label="Tools and standards">
-            {dataTools.map((t) => <li key={t}>{t}</li>)}
-          </ul>
+          <div className="hero-visual reveal"><StackMap /></div>
         </div>
       </section>
 
@@ -48,30 +41,16 @@ export default function Data() {
         </div>
       </section>
 
-      <section className="section section-alt">
+      <section className="section section-ink scheme-ink">
         <div className="container">
-          <SectionHead index="02" label="Recent builds" title="Four builds, four sets of numbers.">
-            Built and run end to end in my own Informatica IDMC environment, up to 20,000+ rows per run.
-          </SectionHead>
-          <div className="cases">
-            {caseStudies.map((c) => (
-              <article className="case reveal" key={c.title}>
-                <div className="case-top">
-                  <span>{c.tag}</span>
-                  <code>{c.asset}</code>
-                </div>
-                <h3>{c.title}</h3>
-                <div className="case-body">
-                  <p><strong>The problem.</strong> {c.problem}</p>
-                  <p><strong>What I built.</strong> {c.built}</p>
-                </div>
-                <dl className={`case-result cols-${c.result.length}`}>
-                  {c.result.map((r) => (
-                    <div key={r.l}><dd>{r.n}</dd><dt>{r.l}</dt></div>
-                  ))}
-                </dl>
-                <p className="case-lesson">{c.lesson}</p>
-              </article>
+          <SectionHead index="02" label="Standards" title="How every delivery is held to account." />
+          <div className="standards">
+            {standards.map((s, i) => (
+              <div className="standard reveal" key={s.title}>
+                <span className="row-num">0{i + 1}</span>
+                <h3>{s.title}</h3>
+                <p>{s.text}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -80,16 +59,19 @@ export default function Data() {
       <section className="section">
         <div className="container split">
           <div className="reveal">
-            <p className="kicker"><span className="kicker-num">03</span>Experience</p>
-            <h2>{renad.role}, {renad.where}</h2>
-            <p className="tl-when">{renad.when}</p>
-            <p className="section-lead">{renad.text}</p>
+            <p className="kicker"><span className="kicker-num">03</span>Track record</p>
+            <h2>{governance.title}</h2>
+            <p className="section-lead">{governance.text}</p>
+            <ul className="check-list">
+              {credentials.map((c) => <li key={c}><CheckIcon /> {c}</li>)}
+            </ul>
           </div>
           <div className="panel reveal">
             <h3>Working with Informatica partners</h3>
             <ul className="check-list">
               {partnerModel.map((p) => <li key={p}><CheckIcon /> {p}</li>)}
             </ul>
+            <WhatsAppButton>Send me the work package</WhatsAppButton>
           </div>
         </div>
       </section>
@@ -97,8 +79,8 @@ export default function Data() {
       <FAQ items={dataFaqs} index="04" />
 
       <ContactBand
-        title="Need a hand on an Informatica project?"
-        text="Send me the work package. I'll reply with how I'd deliver it, a fixed price and a date."
+        title="Have an Informatica project to deliver?"
+        text="Send me the scope. You'll get how I'd deliver it, a fixed price and a date."
       />
     </Page>
   );

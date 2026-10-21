@@ -1,6 +1,6 @@
 import { Page, SectionHead, ContactBand, FAQ, WhatsAppButton } from '../shared';
 import { PhoneScroll } from '../visuals';
-import { hafi, websiteFeatures, websiteExtras, websiteFaqs, steps } from '../content';
+import { hafi, testimonial, websiteFeatures, websiteExtras, websiteFaqs, steps } from '../content';
 import { ArrowIcon, CheckIcon } from '../icons';
 
 export default function Websites() {
@@ -9,13 +9,12 @@ export default function Websites() {
       <section className="hero hero-service">
         <div className="container hero-split">
           <div className="hero-copy">
-            <p className="kicker reveal"><span className="kicker-num">02</span>Websites for small businesses</p>
+            <p className="kicker reveal"><span className="kicker-num">→</span>Websites for small businesses</p>
             <h1 className="display display-md">Visits in. WhatsApp messages out.</h1>
             <p className="lead reveal">
               A clear, fast website that works on the phone, shows up on Google and sends customers straight
-              to your WhatsApp. For small businesses in Saudi Arabia and Egypt.
+              to your WhatsApp. For businesses in Saudi Arabia and Egypt.
             </p>
-            <p className="ar-line reveal" lang="ar" dir="rtl">موقع لنشاطك التجاري بالعربي أو الإنجليزي، ويتواصل معك العميل على واتساب بضغطة واحدة.</p>
             <div className="cta-row reveal">
               <WhatsAppButton>Ask for a plan and a price</WhatsAppButton>
               <a className="btn btn-ghost" href="#work"><span>See the work</span></a>
@@ -46,6 +45,10 @@ export default function Websites() {
               </a>
             </div>
           </article>
+          <blockquote className="quote reveal">
+            <p>"{testimonial.quote}"</p>
+            <footer><strong>{testimonial.name}</strong><span>{testimonial.role} · {testimonial.note}</span></footer>
+          </blockquote>
         </div>
       </section>
 

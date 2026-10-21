@@ -13,6 +13,7 @@ export default defineConfig({
         data: resolve(import.meta.dirname, 'data/index.html'),
         websites: resolve(import.meta.dirname, 'websites/index.html'),
         video: resolve(import.meta.dirname, 'video/index.html'),
+        notfound: resolve(import.meta.dirname, '404.html'),
       },
     },
   },

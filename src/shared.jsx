@@ -52,6 +52,19 @@ export function EmailButton({ className = 'btn btn-ghost' }) {
   );
 }
 
+/* The mark: a monogram M over three service colours (Informatica, websites, video) */
+export function Logo({ className = 'logo' }) {
+  return (
+    <svg className={className} viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+      <rect width="64" height="64" rx="14" fill="currentColor" />
+      <path d="M15 43V17h6.5L32 32.5 42.5 17H49v26h-7V29.5l-10 14.2-10-14.2V43z" fill="var(--logo-ink, #faf8f3)" />
+      <rect x="15" y="48" width="9" height="5" rx="1.5" fill="var(--data)" />
+      <rect x="27.5" y="48" width="9" height="5" rx="1.5" fill="var(--web)" />
+      <rect x="40" y="48" width="9" height="5" rx="1.5" fill="var(--video)" />
+    </svg>
+  );
+}
+
 function Header({ current }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -67,6 +80,9 @@ function Header({ current }) {
 
   useEffect(() => {
     if (!open) return;
+    // The page behind the open menu stays put
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     // Keyboard users land on the first link; Escape returns them to the menu button
     if (window.matchMedia('(max-width: 879px)').matches) navRef.current?.querySelector('a')?.focus();
     const onKey = (e) => {
@@ -75,15 +91,18 @@ function Header({ current }) {
       menuBtnRef.current?.focus();
     };
     window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prevOverflow; };
   }, [open]);
 
   return (
     <header className={`header${scrolled ? ' is-scrolled' : ''}${open ? ' is-open' : ''}`}>
       <div className="container header-inner">
         <a className="brand" href="/" aria-label="Mahmoud Moustafa, home">
-          <span className="brand-mark" aria-hidden="true">MM</span>
-          <span className="brand-name">Mahmoud Moustafa</span>
+          <Logo />
+          <span className="brand-text">
+            <span className="brand-name">Mahmoud Moustafa</span>
+            <span className="brand-sub">Informatica · Web · Video</span>
+          </span>
         </a>
         <nav className="nav" id="site-nav" aria-label="Main" ref={navRef}>
           {pages.map((p) => (
@@ -171,7 +190,7 @@ function Footer({ current }) {
     <footer className="footer">
       <div className="container footer-inner">
         <div>
-          <p className="footer-name">Mahmoud Moustafa</p>
+          <p className="footer-name"><Logo className="logo logo-sm" /> Mahmoud Moustafa</p>
           <p className="footer-sub">Data, websites and video. Remote, in English and Arabic.</p>
         </div>
         <nav className="footer-links" aria-label="Footer">
@@ -255,6 +274,7 @@ export function LoopVideo({ src, poster, className, label }) {
     const v = ref.current;
     if (!v) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+    if (navigator.connection?.saveData) return;
     const io = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) v.play().catch(() => {});
       else v.pause();

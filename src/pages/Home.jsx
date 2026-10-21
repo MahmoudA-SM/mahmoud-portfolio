@@ -1,12 +1,12 @@
 import { Page, SectionHead, ContactBand, WhatsAppButton, EmailButton } from '../shared';
-import { LoadRecord, PhoneScroll, PhoneVideo } from '../visuals';
-import { doors, ticker, habit, steps, experience, credentials, hafi, links } from '../content';
+import { StackMap, PhoneScroll, PhoneVideo } from '../visuals';
+import { doors, ticker, habit, steps, experience, credentials, hafi, links, testimonial } from '../content';
 import { ArrowIcon, CheckIcon, LinkedInIcon } from '../icons';
 
 function DoorVisual({ k }) {
-  if (k === 'data') return <LoadRecord compact />;
+  if (k === 'data') return <StackMap compact />;
   if (k === 'websites') return <PhoneScroll src={hafi.tall} alt="ahmedalhafi.com on a phone" href={hafi.url} />;
-  return <PhoneVideo src="/video/loop-hobby.mp4" poster="/video/loop-hobby.jpg" label="Clip from a sample short edited at Retaincut" />;
+  return <PhoneVideo src="/video/loop-hobby.mp4" poster="/video/loop-hobby.jpg" label="Clip from a sample short edited at Retaincut, CC BY footage, credits on the video page" />;
 }
 
 export default function Home() {
@@ -14,19 +14,27 @@ export default function Home() {
     <Page current="home">
       <section className="hero hero-home">
         <div className="container">
-          <p className="meta-line reveal">
-            <span>Mahmoud Moustafa</span><span>Data / Websites / Video</span><span>Riyadh and remote</span><span>EN / AR</span>
-          </p>
-          <h1 className="display">
-            <a className="display-line" data-acc="data" href="/data/">Data you can trust.<ArrowIcon /></a>
-            <a className="display-line" data-acc="websites" href="/websites/">Websites that sell.<ArrowIcon /></a>
-            <a className="display-line" data-acc="video" href="/video/">Videos people finish.<ArrowIcon /></a>
-          </h1>
+          <div className="hero-top">
+            <div>
+              <p className="meta-line reveal">
+                <span>Informatica consulting</span><span>Websites</span><span>Video editing</span><span>Riyadh and remote</span>
+              </p>
+              <h1 className="display">
+                <a className="display-line" data-acc="data" href="/data/">Data you can trust.<ArrowIcon /></a>
+                <a className="display-line" data-acc="websites" href="/websites/">Websites that sell.<ArrowIcon /></a>
+                <a className="display-line" data-acc="video" href="/video/">Videos people finish.<ArrowIcon /></a>
+              </h1>
+            </div>
+            <figure className="portrait reveal">
+              <img src="/mahmoud.jpg" alt="Mahmoud Moustafa" width="349" height="349" fetchPriority="high" />
+              <figcaption><strong>Mahmoud Moustafa</strong><span>Informatica consultant · Web · Video</span></figcaption>
+            </figure>
+          </div>
           <div className="hero-foot">
             <p className="lead reveal">
-              I'm Mahmoud. I build Informatica data loads that prove every row is accounted for, websites that
-              turn visits into WhatsApp messages, and video edits that hold attention to the last second.
-              Three services, one habit: agree what good looks like, then show the proof.
+              I'm Mahmoud, an Informatica consultant across PowerCenter, IDMC, data quality and governance.
+              I also build websites that turn visits into WhatsApp messages, and edit videos that hold
+              attention to the last second. One standard for all three: agree what good looks like, then prove it.
             </p>
             <div className="cta-row reveal">
               <WhatsAppButton />
@@ -66,6 +74,15 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section section-quote">
+        <div className="container">
+          <blockquote className="quote quote-lg reveal">
+            <p>"{testimonial.quote}"</p>
+            <footer><strong>{testimonial.name}</strong><span>{testimonial.role} · website client · {testimonial.note}</span></footer>
+          </blockquote>
+        </div>
+      </section>
+
       <section className="section section-ink scheme-ink">
         <div className="container">
           <SectionHead index="02" label="One habit" title="Agree what good looks like. Then prove it." />
@@ -96,11 +113,12 @@ export default function Home() {
             <p className="kicker"><span className="kicker-num">03</span>About</p>
             <h2>Hi, I'm Mahmoud.</h2>
             <p>
-              I studied computer science in Canada, worked as a software developer in Saudi Arabia, then moved
-              into data management on a national data governance program in Riyadh. Alongside the data work I
-              build websites for small businesses and edit video at Retaincut, my editing studio.
+              Informatica consultant with a computer science degree from Canada and a software engineering
+              background in Saudi Arabia. I've worked on national data governance for Saudi government
+              entities under NDMO standards, and I'm Informatica-certified in data quality. Alongside the data
+              work I build websites for businesses and edit video at Retaincut, my editing studio.
             </p>
-            <p>Native Arabic, fluent English. I work remotely, on Saudi and Egypt time.</p>
+            <p>Native Arabic, fluent English. Remote, across time zones.</p>
             <div className="cta-row">
               <a className="btn btn-ghost" href={links.linkedin} target="_blank" rel="noopener noreferrer">
                 <LinkedInIcon /> <span>LinkedIn</span>
@@ -110,8 +128,7 @@ export default function Home() {
           <div className="about-side">
             <ol className="timeline">
               {experience.map((e) => (
-                <li className="reveal" key={e.role + e.when}>
-                  <span className="tl-when">{e.when}</span>
+                <li className="reveal" key={e.role}>
                   <h3>{e.role}</h3>
                   <p className="tl-where">{e.where}</p>
                   <p>{e.text}</p>
