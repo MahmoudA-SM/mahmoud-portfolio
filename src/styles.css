@@ -18,7 +18,7 @@
   --accent-text: #0f766e;
   --on-accent: #ffffff;
   --warm: #b45309;
-  --ok: #15803d;
+  --ok: #166534;
   --ok-soft: #dcf3e3;
   --shadow: 0 1px 2px rgb(20 23 28 / 5%), 0 8px 24px -8px rgb(20 23 28 / 12%);
   --shadow-lg: 0 2px 4px rgb(20 23 28 / 4%), 0 24px 48px -16px rgb(20 23 28 / 22%);
@@ -290,6 +290,7 @@ dl, dd { margin: 0; }
   background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-lg);
   display: grid; gap: 14px;
 }
+.receipt-kicker { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: -6px; }
 .receipt-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .receipt-title { font: 650 18px/1.2 var(--font-display); }
 .receipt-sub { font-size: 13px; color: var(--muted); margin-top: -8px; }
@@ -331,6 +332,9 @@ dl, dd { margin: 0; }
 .section-head h2, .contact h2, .about-intro h2 { font-size: clamp(30px, 6.4vw, 48px); letter-spacing: -0.03em; }
 .section-lead { font-size: 18px; color: var(--muted); }
 .sub-head { font-size: 22px; margin: 56px 0 20px; }
+.sub-head-wrap { margin: 56px 0 20px; display: grid; gap: 6px; }
+.sub-head-wrap .sub-head { margin: 0; }
+.sub-head-wrap p { color: var(--muted); font-size: 15.5px; }
 
 @media (min-width: 768px) {
   .section { padding: 104px 0; }
@@ -560,3 +564,8 @@ dl, dd { margin: 0; }
 /* ---------- Reveal on scroll ---------- */
 .can-reveal .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
 .can-reveal .reveal.is-in { opacity: 1; transform: none; }
+
+@media print {
+  .can-reveal .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .header, .fab, .skip { display: none !important; }
+}

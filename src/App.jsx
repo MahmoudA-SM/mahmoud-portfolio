@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   links, proof, dataServices, caseStudies, experience, credentials,
   websiteFeatures, websites, steps, faqs,
@@ -66,6 +66,8 @@ function EmailButton({ className = 'btn btn-ghost' }) {
 function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navRef = useRef(null);
+  const menuBtnRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -76,7 +78,13 @@ function Header() {
 
   useEffect(() => {
     if (!open) return;
-    const onKey = (e) => e.key === 'Escape' && setOpen(false);
+    // Keyboard users land on the first link; Escape returns them to the menu button
+    if (window.matchMedia('(max-width: 879px)').matches) navRef.current?.querySelector('a')?.focus();
+    const onKey = (e) => {
+      if (e.key !== 'Escape') return;
+      setOpen(false);
+      menuBtnRef.current?.focus();
+    };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [open]);
@@ -88,7 +96,7 @@ function Header() {
           <span className="brand-mark" aria-hidden="true">MM</span>
           <span className="brand-name">Mahmoud Moustafa</span>
         </a>
-        <nav className="nav" id="site-nav" aria-label="Main">
+        <nav className="nav" id="site-nav" aria-label="Main" ref={navRef}>
           {nav.map((n) => (
             <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)}>{n.label}</a>
           ))}
@@ -97,7 +105,7 @@ function Header() {
         <div className="header-actions">
           <ThemeToggle />
           <WhatsAppButton className="btn btn-primary btn-sm header-wa">WhatsApp</WhatsAppButton>
-          <button className="icon-btn menu-btn" type="button" aria-expanded={open} aria-controls="site-nav"
+          <button className="icon-btn menu-btn" type="button" ref={menuBtnRef} aria-expanded={open} aria-controls="site-nav"
             aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen((o) => !o)}>
             <MenuIcon open={open} />
           </button>
@@ -133,7 +141,8 @@ function Hero() {
           </ul>
         </div>
 
-        <figure className="receipt" aria-label="Example: the audit record of one daily customer load">
+        <figure className="receipt" aria-label="From a recent build: the audit record of one daily customer load">
+          <p className="receipt-kicker">From a recent build</p>
           <div className="receipt-head">
             <span className="receipt-title">Daily customer load</span>
             <span className="badge badge-ok">Balanced</span>
@@ -200,7 +209,10 @@ function DataWork() {
           ))}
         </div>
 
-        <h3 className="sub-head reveal">Recent builds</h3>
+        <div className="sub-head-wrap reveal">
+          <h3 className="sub-head">Recent builds</h3>
+          <p>Built and run end to end in my own Informatica IDMC environment, at real file sizes.</p>
+        </div>
         <div className="cases">
           {caseStudies.map((c) => (
             <article className="case reveal" key={c.title}>
@@ -227,7 +239,7 @@ function DataWork() {
           </div>
           <div className="cta-row">
             <WhatsAppButton>WhatsApp</WhatsAppButton>
-            <a className="btn btn-ghost" href={links.capability} download>
+            <a className="btn btn-ghost" href={links.capability} download={links.capabilityName}>
               <DownloadIcon /> <span>Capability statement (PDF)</span>
             </a>
           </div>
@@ -441,14 +453,24 @@ export default function App() {
       items.forEach((el) => el.classList.add('is-in'));
       return;
     }
+    // Anything already on screen or above it (deep link, reload mid-page) shows straight away
+    items.forEach((el) => { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('is-in'); });
     document.documentElement.classList.add('can-reveal');
+    const showAll = () => items.forEach((el) => el.classList.add('is-in'));
+    window.addEventListener('beforeprint', showAll);
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
       });
     }, { rootMargin: '0px 0px -8% 0px' });
-    items.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    items.forEach((el) => { if (!el.classList.contains('is-in')) io.observe(el); });
+    return () => { io.disconnect(); window.removeEventListener('beforeprint', showAll); };
+  }, []);
+
+  useEffect(() => {
+    // Sections render after the browser tried to jump to #hash, so jump again once they exist
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (id) document.getElementById(id)?.scrollIntoView({ behavior: 'instant' });
   }, []);
 
   return (

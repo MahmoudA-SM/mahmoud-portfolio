@@ -6,13 +6,14 @@ export const links = {
   whatsappLabel: '+966 51 026 7231',
   email: 'mahmoudmoustafa.ca@gmail.com',
   linkedin: 'https://www.linkedin.com/in/mahmoud-moustafa-99727122a/',
-  capability: '/Mahmoud Moustafa Capability Statement.pdf',
+  capability: '/capability-statement.pdf',
+  capabilityName: 'Mahmoud Moustafa Capability Statement.pdf',
 };
 
 export const proof = [
   { value: '6 months', label: 'on a national data governance program in Riyadh, under NDMO standards' },
   { value: '20,060', label: 'customer rows loaded in one run, every row accounted for' },
-  { value: '0', label: 'real emails or names left in a 20,210-customer masked vendor file' },
+  { value: '0', label: 'real emails or full names left in a 20,210-customer masked vendor file' },
   { value: '2 languages', label: 'English and Arabic, for workshops, documents and client calls' },
 ];
 
@@ -93,8 +94,8 @@ export const caseStudies = [
       'An extract where every name becomes a consistent fake name and every email a SHA-256 hash, plus a check that searches the file for every real email and full name before it leaves.',
     result: [
       { n: '20,210', l: 'customers' },
-      { n: '0', l: 'real emails or names found' },
-      { n: '19,633', l: 'hashes that match' },
+      { n: '0', l: 'real emails or full names found' },
+      { n: '19,633', l: 'of 19,633 email hashes match' },
     ],
     lesson:
       'Hashed the usual way, 0 emails matched: the hash was taken over UTF-16 text, not UTF-8. Testing the file the way the receiver uses it caught that, and the exact recipe is now part of the file spec.',
@@ -132,16 +133,16 @@ export const credentials = [
   'Informatica Cloud Data Quality Professional certification (2026)',
   'Informatica CDQ Implementation Practitioner certification (2026)',
   'Informatica CDGC implementation training path (2026)',
-  'Delivered a 12-hour Power BI course and Power BI workshops',
+  'Co-delivered a 12-hour Power BI course, and Power BI workshops',
   '3-day data management workshop at King Saud Medical City',
 ];
 
 export const websiteFeatures = [
-  { title: 'Built for the phone first', text: 'Most of your customers will see it on a phone, so that is where it is designed and tested, iPhone included.' },
+  { title: 'Built for the phone first', text: 'Most of your customers will see it on a phone, so that is where it is designed first, and checked on iPhone Safari.' },
   { title: 'Arabic, English or both', text: 'Right-to-left Arabic done properly, not a flipped English page.' },
   { title: 'WhatsApp and call buttons', text: 'One tap from any page to message or call you. No forms to get lost in.' },
-  { title: 'Found on Google', text: 'Set up in Google Search Console with clear page titles, so people searching for you find you.' },
-  { title: 'Fast and on your own domain', text: 'Light pages that open quickly, on your own .com or .sa address.' },
+  { title: 'Ready for Google', text: 'Clear page titles and descriptions, and connected to Google Search Console so you can see how people find you.' },
+  { title: 'Fast and on your own domain', text: 'Light pages that open quickly, on your own web address.' },
   { title: 'You see it before launch', text: 'A private link to review and request changes, before anything goes public.' },
 ];
 
@@ -154,14 +155,6 @@ export const websites = [
     urlLabel: 'ahmedalhafi.com',
     desktop: '/work/ahmed-al-hafi-desktop.jpg',
     mobile: '/work/ahmed-al-hafi-mobile.jpg',
-  },
-  {
-    name: 'Studify',
-    kind: 'My own product',
-    text: 'A study app in English and Arabic: students upload a lecture PDF and get a clear summary and exam questions. Sign-in, free trial and dark mode.',
-    url: 'https://www.studifyai.online',
-    urlLabel: 'studifyai.online',
-    desktop: '/work/studify-desktop.jpg',
   },
 ];
 
@@ -187,7 +180,7 @@ export const faqs = [
   },
   {
     q: 'Are there costs after a website goes live?',
-    a: 'Your domain renews every year, and I tell you its price before we start. Small sites usually run on free hosting; if your traffic grows past the free limits, a paid plan is needed, and I tell you that price up front too. Monthly updates are optional.',
+    a: 'Two possible costs, both told to you before we start. Your domain renews every year (around $10 to $15 for a .com). Hosting can start on a free plan that allows business use; if your site grows past its limits, a paid plan is needed, usually from about $20 a month. Monthly updates are optional.',
   },
   {
     q: 'What do you need from me for a website?',
@@ -195,6 +188,6 @@ export const faqs = [
   },
   {
     q: 'Where are you based?',
-    a: 'I work remotely with clients in Saudi Arabia, Egypt and elsewhere, on Saudi and Egypt time.',
+    a: 'I work remotely, on Saudi and Egypt time, with clients in Saudi Arabia and beyond.',
   },
 ];
