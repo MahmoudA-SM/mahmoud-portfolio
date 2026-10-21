@@ -2,12 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Mahmoud Moustafa | Informatica IDMC data work and business websites</title>
+    <meta name="description" content="Informatica IDMC data integration, data quality and governance for data teams, and fast phone-first websites for small businesses in Saudi Arabia and Egypt. English and Arabic." />
+    <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0c0f14" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mahmoud Moustafa | Informatica IDMC data work and business websites" />
+    <meta property="og:description" content="Data you can trust. Websites that bring in customers. Remote, in English and Arabic." />
+    <meta property="og:image" content="https://mahmoud-portfolio-three.vercel.app/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <script>
+      // Apply a saved light/dark choice before the first paint, so the page never flashes the wrong theme
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <p style="padding:24px;font-family:sans-serif">Mahmoud Moustafa: Informatica IDMC data work and business websites.
+        WhatsApp <a href="https://wa.me/966510267231">+966 51 026 7231</a> or email
+        <a href="mailto:mahmoudmoustafa.ca@gmail.com">mahmoudmoustafa.ca@gmail.com</a>.</p>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
