@@ -1,12 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import '@fontsource-variable/inter/wght.css'
-import '@fontsource-variable/bricolage-grotesque/wght.css'
-import './styles.css'
-import App from './App.jsx'
+import '../fonts'
+import '../styles.css'
+import Home from '../pages/Home.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <Home />
   </StrictMode>,
 )

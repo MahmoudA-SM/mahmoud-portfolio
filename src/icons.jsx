@@ -57,6 +57,12 @@ export const MenuIcon = ({ open }) => (
   </svg>
 );
 
+export const PlayIcon = () => (
+  <svg {...base} fill="currentColor">
+    <path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5Z" />
+  </svg>
+);
+
 export const PlusIcon = () => (
   <svg {...stroke}>
     <path d="M12 5v14M5 12h14" />

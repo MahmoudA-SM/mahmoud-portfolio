@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Websites for small businesses | Mahmoud Moustafa</title>
+    <meta name="description" content="Fast, phone-first websites in Arabic, English or both for small businesses in Saudi Arabia and Egypt, built to turn visits into WhatsApp messages." />
+    <link rel="canonical" href="https://mahmoud-portfolio-three.vercel.app/websites/" />
+    <meta name="theme-color" content="#f3f0e8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e0e0f" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mahmoud-portfolio-three.vercel.app/websites/" />
+    <meta property="og:title" content="Websites for small businesses | Mahmoud Moustafa" />
+    <meta property="og:description" content="Fast, phone-first websites in Arabic, English or both for small businesses in Saudi Arabia and Egypt, built to turn visits into WhatsApp messages." />
+    <meta property="og:image" content="https://mahmoud-portfolio-three.vercel.app/og-websites.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <script>
+      // Apply a saved light/dark choice before the first paint, so the page never flashes the wrong theme
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+  </head>
+  <body data-page="websites">
+    <div id="root"></div>
+    <noscript>
+      <p style="padding:24px;font-family:sans-serif">Mahmoud Moustafa: data, websites and video.
+        WhatsApp <a href="https://wa.me/966510267231">+966 51 026 7231</a> or email
+        <a href="mailto:mahmoudmoustafa.ca@gmail.com">mahmoudmoustafa.ca@gmail.com</a>.</p>
+    </noscript>
+    <script type="module" src="/src/entries/websites.jsx"></script>
+  </body>
+</html>
