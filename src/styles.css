@@ -563,6 +563,9 @@ button { font: inherit; color: inherit; }
 .browser-bar span { margin-left: 8px; font: 500 12px/1 var(--font-mono); color: var(--muted); }
 .browser img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
 .showcase-info { display: grid; gap: 18px; align-content: center; }
+.showcase-intro { color: var(--muted); }
+.showcase-next { margin-top: 72px; }
+@media (min-width: 768px) { .showcase-next { margin-top: 112px; } }
 @media (min-width: 960px) { .showcase { grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: center; } }
 
 .grid-3 { display: grid; gap: 14px; }
