@@ -204,7 +204,7 @@ export const hafi = {
 
 export const fusion8 = {
   name: 'Fusion8',
-  kind: 'American PPF film brand, made for the Middle East',
+  kind: 'American PPF brand, made for the Middle East',
   url: 'https://fusion8film.com',
   urlLabel: 'fusion8film.com',
   desktop: '/work/fusion8-desktop.jpg',
