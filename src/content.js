@@ -214,7 +214,7 @@ export const fusion8 = {
     'Warranty card lookup: car owners enter their card number and check it themselves',
     'A private Arabic page for authorized centres to activate cards, with the expiry worked out from the film type',
     'A page for each of the four films, with specs and a comparison table',
-    'Enquiry and partnership forms, a sitemap and clear titles for Google',
+    'Enquiry and partnership forms, set up to be found on Google',
     'Live on the brand\'s own domain and fully handed over',
   ],
 };
