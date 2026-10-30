@@ -202,6 +202,23 @@ export const hafi = {
   ],
 };
 
+export const fusion8 = {
+  name: 'Fusion8',
+  kind: 'American PPF film brand, made for the Middle East',
+  url: 'https://fusion8film.com',
+  urlLabel: 'fusion8film.com',
+  desktop: '/work/fusion8-desktop.jpg',
+  desktopAlt: 'Fusion8 warranty card lookup on a laptop screen',
+  intro: 'A paint protection film brand with USA technology and a Baltimore office, sold through authorized centres across the Middle East. A 13-page brand site built around one job: proving the warranty is real.',
+  points: [
+    'Warranty card lookup: car owners enter their card number and check it themselves',
+    'A private Arabic page for authorized centres to activate cards, with the expiry worked out from the film type',
+    'A page for each of the four films, with specs and a comparison table',
+    'Enquiry and partnership forms, a sitemap and clear titles for Google',
+    'Live on the brand\'s own domain and fully handed over',
+  ],
+};
+
 // Ahmed gave permission on 2026-09-04 to publish his words with his name. Translated from his Arabic message (2026-09-04).
 export const testimonial = {
   quote: 'Honestly, he was patient with me, because I kept adding things, and that says a lot about his character and how responsive he is to the client. After the handover: not a single mistake, from the design to the layout to how it works. Simple and easy.',

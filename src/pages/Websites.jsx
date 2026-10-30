@@ -1,6 +1,6 @@
 import { Page, SectionHead, ContactBand, FAQ, WhatsAppButton } from '../shared';
 import { PhoneScroll } from '../visuals';
-import { hafi, testimonial, websiteFeatures, websiteExtras, websiteFaqs, steps } from '../content';
+import { hafi, fusion8, testimonial, websiteFeatures, websiteExtras, websiteFaqs, steps } from '../content';
 import { ArrowIcon, CheckIcon } from '../icons';
 
 export default function Websites() {
@@ -49,12 +49,33 @@ export default function Websites() {
             <p>"{testimonial.quote}"</p>
             <footer><strong>{testimonial.name}</strong><span>{testimonial.role} · {testimonial.note}</span></footer>
           </blockquote>
+
+          <div className="showcase-next">
+            <SectionHead index="02" label="Live work" title={fusion8.name} />
+            <article className="showcase reveal">
+              <a className="browser" href={fusion8.url} target="_blank" rel="noopener noreferrer"
+                aria-label={`Open ${fusion8.urlLabel} in a new tab`}>
+                <span className="browser-bar" aria-hidden="true"><i /><i /><i /><span>{fusion8.urlLabel}</span></span>
+                <img src={fusion8.desktop} alt={fusion8.desktopAlt} width="1600" height="1000" loading="lazy" decoding="async" />
+              </a>
+              <div className="showcase-info">
+                <p className="door-for">{fusion8.kind}</p>
+                <p className="showcase-intro">{fusion8.intro}</p>
+                <ul className="check-list">
+                  {fusion8.points.map((p) => <li key={p}><CheckIcon /> {p}</li>)}
+                </ul>
+                <a className="door-link" href={fusion8.url} target="_blank" rel="noopener noreferrer">
+                  Visit {fusion8.urlLabel} <ArrowIcon />
+                </a>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
       <section className="section section-alt">
         <div className="container">
-          <SectionHead index="02" label="Included" title="What every site comes with" />
+          <SectionHead index="03" label="Included" title="What every site comes with" />
           <div className="grid-3">
             {websiteFeatures.map((f, i) => (
               <div className="tile reveal" key={f.title}>
@@ -79,7 +100,7 @@ export default function Websites() {
 
       <section className="section">
         <div className="container">
-          <SectionHead index="03" label="How it works" title="Fixed price. You see it before it goes live." />
+          <SectionHead index="04" label="How it works" title="Fixed price. You see it before it goes live." />
           <ol className="steps steps-light">
             {steps.map((s, i) => (
               <li className="step reveal" key={s.title}>
@@ -92,7 +113,7 @@ export default function Websites() {
         </div>
       </section>
 
-      <FAQ items={websiteFaqs} index="04" />
+      <FAQ items={websiteFaqs} index="05" />
 
       <ContactBand
         title="Want a website for your business?"
