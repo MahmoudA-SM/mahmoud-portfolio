@@ -3,7 +3,7 @@ import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 import { upload } from '@vercel/blob/client'
 
-const API = '/api/ichat'
+const API = '/api/ichat' // trailing slashes are used below: the site has trailingSlash on, so slash-less API URLs 308-redirect
 const $ = (id) => document.getElementById(id)
 const list = $('list'), textEl = $('text'), sendBtn = $('send'), fileEl = $('file'), prev = $('attach-preview')
 
@@ -90,7 +90,7 @@ const fmtDay = (ts) => {
 async function loadImage(img, id) {
   try {
     if (!imgCache.has(id)) {
-      const r = await fetch(`${API}/img?id=${id}`, { headers: auth() })
+      const r = await fetch(`${API}/img/?id=${id}`, { headers: auth() })
       if (!r.ok) throw new Error('x')
       imgCache.set(id, URL.createObjectURL(await r.blob()))
     }
@@ -132,7 +132,7 @@ function el(m) {
     const del = document.createElement('button'); del.type = 'button'; del.textContent = 'Delete'
     del.onclick = async () => {
       if (!confirm('Delete this message?')) return
-      const r = await fetch(`${API}/messages?id=${encodeURIComponent(m.id)}`, { method: 'DELETE', headers: auth() })
+      const r = await fetch(`${API}/messages/?id=${encodeURIComponent(m.id)}`, { method: 'DELETE', headers: auth() })
       if (r.ok) { msgs = msgs.filter((x) => x.id !== m.id); render(false) } else toast('Could not delete')
     }
     meta.appendChild(del)
@@ -168,7 +168,7 @@ function render(stick = true) {
 async function poll(first = false) {
   if (!TOKEN) return
   try {
-    const r = await fetch(`${API}/messages?since=${lastTs}`, { headers: auth(), cache: 'no-store' })
+    const r = await fetch(`${API}/messages/?since=${lastTs}`, { headers: auth(), cache: 'no-store' })
     if (r.status === 401) { $('gate').hidden = false; $('composer').hidden = true; setStatus('off', 'Not authorised'); return 'stop' }
     if (!r.ok) throw new Error('bad')
     const { messages } = await r.json()
@@ -234,7 +234,7 @@ fileEl.onchange = async () => {
     if (f.type === 'application/pdf') {
       if (f.size > 20 * 1024 * 1024) return toast('PDF is over 20 MB')
       pending = { name: f.name, uploading: true }; paintPreview(); refreshSend()
-      const b = await upload(`ichat/${f.name.replace(/[^\w.\- ]/g, '_')}`, f, { access: 'public', handleUploadUrl: `${API}/upload`, clientPayload: TOKEN })
+      const b = await upload(`ichat/${f.name.replace(/[^\w.\- ]/g, '_')}`, f, { access: 'public', handleUploadUrl: `${API}/upload/`, clientPayload: TOKEN })
       pending = { name: f.name, file: { url: b.url, name: f.name, size: f.size } }
     } else if (/^image\//.test(f.type)) {
       pending = { name: f.name, image: await shrinkImage(f) }
@@ -255,7 +255,7 @@ async function send() {
     const body = { text }
     if (att?.image) body.image = att.image
     if (att?.file) body.file = att.file
-    const r = await fetch(`${API}/messages`, { method: 'POST', headers: { ...auth(), 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+    const r = await fetch(`${API}/messages/`, { method: 'POST', headers: { ...auth(), 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
     if (!r.ok) throw new Error('post')
     const { message } = await r.json()
     pendingLocal = pendingLocal.filter((x) => x !== local)
